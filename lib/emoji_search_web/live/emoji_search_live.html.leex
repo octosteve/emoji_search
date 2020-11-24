@@ -1,0 +1,16 @@
+<section class="phx-hero">
+  <h1>Search for a emoji!</h1>
+
+  <form phx-change="search">
+    <input type="text" name="q" list="results" autocomplete="off"/>
+  </form>
+  <%= for row <- per_row(@emojis.results, 3) do %>
+    <div class="row">
+      <%= for emoji <- row do %>
+        <div class="column">
+        <%= emoji.term %> <%= img_tag(emoji.url) %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</section>
